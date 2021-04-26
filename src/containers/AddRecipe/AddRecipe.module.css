@@ -1,0 +1,15 @@
+.AddRecipe {
+  width: 60%;
+  height: 250px;
+  margin: 30px auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  text-align: center;
+}
+.AddRecipeForm {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+  width: auto;
+  height: 25px;
+}

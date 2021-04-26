@@ -1,20 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import Toolbar from './components/Navigation/Toolbar/Toolbar';
-import AddRecipe from './components/AddRecipe/AddRecipe';
-import ShowRecipe from './components/ShowRecipe/ShowRecipe';
+import Layout from './components/Layout/Layout';
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Toolbar />
-        <AddRecipe />
-        <ShowRecipe />
-      </div>
-      
-    )
-  }
+const App = () => {
+  return (
+    <div>
+      <Layout />
+    </div>
+    
+  )
 }
 
 export default App;
