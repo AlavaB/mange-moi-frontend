@@ -17,7 +17,7 @@ class addRecipe extends Component {
       description: this.state.description
     };
     axios.post('http://localhost:3000/api/recipes', recipe)
-      .then(response => console.log(response))
+      .then(response => console.log('recette enregistrée', response))
   };
 
   render() {

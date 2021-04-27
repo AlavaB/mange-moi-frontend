@@ -1,0 +1,11 @@
+.AllRecipes {
+  width: 60%;
+  margin: 30px auto;
+  text-align: center;
+}
+.SingleRecipe {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

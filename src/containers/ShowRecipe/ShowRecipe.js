@@ -1,35 +1,41 @@
 import React, { Component } from 'react';
-import axios from "axios";
+import axios from 'axios';
 
-import Recipe from '../../components/Recipe/Recipe';
 import classes from './ShowRecipe.module.css';
 
 
 class ShowRecipe extends Component {
-  state= {
-    recipes: [],
-  };
-
-  componentDidMount() {
-    axios.get('http://localhost:3000/api/recipes')
-      .then(response => {
-        this.setState({ recipes: response.data });
-        //console.log(response);
-      })
+  state = {
+    loadedRecipe: null
   }
-  render() {
-    const recipes = this.state.recipes.map(recipe => {
-      return <Recipe title={recipe.name} ingredients={recipe.ingredients} description={recipe.description} />
-    });
-    return (
-      <div className={classes.ShowRecipe}>
-        <h1>Voir toutes les recettes</h1>
-        <div className={classes.ShowRecipeBox}>
-          {recipes}
 
+  componentDidUpdate () {
+    if (this.props.id) {
+      if (!this.state.loadedRecipe || (this.state.loadedRecipe && this.state.loadedRecipe.id !== this.props.id)) {
+        axios.get("http://localhost:3000/api/recipes/" + this.props.id)
+          .then(response => {
+            this.setState({ loadedRecipe: response.data});
+          })
+      }
+    }
+    
+      
+    
+  }
+
+  render () {
+    let recipe = <p style={{ textAlign: "center" }}>Veuillez choisir une recette</p>;
+    if (this.state.loadedRecipe) {
+      recipe = (
+        <div className={classes.ShowRecipe}>
+          <h1>{this.state.loadedRecipe.name}</h1>
+          <p>{this.state.loadedRecipe.ingredients}</p>
+          <p>{this.state.loadedRecipe.description}</p>
+          <button>Supprimer</button>
         </div>
-      </div>
-    );
+      )
+    }  
+    return recipe;
   }
   
 }
