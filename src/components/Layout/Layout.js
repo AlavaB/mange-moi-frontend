@@ -2,14 +2,13 @@ import React from 'react';
 
 import Auxilary from '../../hoc/Auxilary'; // wrapping component 
 import Toolbar from "../Navigation/Toolbar/Toolbar";
-import AddRecipe from '../../containers/AddRecipe/AddRecipe';
+import Main from '../../containers/Main/Main.js';
 
-const layout = (props) => {
+const layout = () => {
   return (
     <Auxilary>
       <Toolbar />
-      <AddRecipe />
-      <div>ShowRecipe</div>
+      <Main />
     </Auxilary>
   );
   

@@ -1,21 +1,23 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 import classes from "./AddRecipe.module.css";
 
 class addRecipe extends Component {
   state = {
-    recipeName: "",
+    name: "",
     ingredients: "",
     description: "",
   };
 
-  newRecipeHandler = (event) => {
-    
-  };
-
-  submitNewRecipeName = () => {
-    console.log(this.state);
-    /*à envoyer dans la base de données*/
+  postNewRecipe = () => {
+    const recipe = {
+      name: this.state.name,
+      ingredients: this.state.ingredients,
+      description: this.state.description
+    };
+    axios.post('http://localhost:3000/api/recipes', recipe)
+      .then(response => console.log(response))
   };
 
   render() {
@@ -24,20 +26,20 @@ class addRecipe extends Component {
         <h1>Créer une recette</h1>
         <div className={classes.AddRecipeForm}>
           Saisir le nom de la recette
-          <input type="text" name="recipename" onChange={(e) => this.setState({ recipeName: e.target.value })} />
+          <input type="text" value={this.state.name} onChange={(event) => this.setState({ name: event.target.value })} />
         </div>
 
         <div className={classes.AddRecipeForm}>
           Ajoutez les ingrédients
-          <input type="text" name="ingredients" onChange={(e) => this.setState({ ingredients: e.target.value })} />
+          <input type="text" value={this.state.ingredients} onChange={(event) => this.setState({ ingredients: event.target.value })} />
         </div>
 
         <div className={classes.AddRecipeForm}>
           Indiquez la marche à suivre
-          <input type="text" name="description" onChange={(e) => this.setState({ description: e.target.value })} />
+          <input type="text" value={this.state.description} onChange={(event) => this.setState({ description: event.target.value })} />
         </div>
-        
-        <button onClick={this.submitNewRecipeName}>CREER LA RECETTE</button>
+
+        <button onClick={this.postNewRecipe}>CREER LA RECETTE</button>
       </div>
     );
   }
