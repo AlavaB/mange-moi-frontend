@@ -1,0 +1,15 @@
+.FindRecipeTitle {
+  font-size: 1.8em;
+  line-height: 50px;
+}
+.FindRecipeText {
+  margin: 0 0;
+  font-size: 1.2em;
+}
+.FindRecipeInput {
+  width: 500px;
+  line-height: 50px;
+  border-radius: 5px;
+  border-color: #f2f2f2;
+  margin: 10px 10px;
+}

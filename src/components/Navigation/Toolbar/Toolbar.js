@@ -7,12 +7,12 @@ import NavigationItem from '../NavigationItem/NavigationItem';
 const toolbar = (props) => {
   return (
     <header className={classes.Toolbar}>
-      <h1>Mange-moi</h1>
+      <a className={classes.Title} href='#'>Mange-moi</a>
       <img src={appLogo} alt='Logo'></img>
       <nav>
         <ul className={classes.NavItems}>
-          <NavigationItem link="/">Accueil</NavigationItem>
-          <NavigationItem link="/">Tous les ingrédients</NavigationItem>
+          <NavigationItem link="/">Mon Compte</NavigationItem>
+          <NavigationItem link="/">Créer une Recette</NavigationItem>
         </ul>
         
       </nav>

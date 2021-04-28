@@ -5,6 +5,7 @@ import Auxilary from '../../hoc/Auxilary';
 import AddRecipe from '../AddRecipe/AddRecipe';
 import Recipe from '../../components/Recipe/Recipe';
 import ShowRecipe from '../ShowRecipe/ShowRecipe';
+import FindRecipe from '../FindRecipe/FindRecipe';
 import classes from './Main.module.css';
 
 class Main extends Component {
@@ -16,11 +17,10 @@ class Main extends Component {
   componentDidMount() {
     axios.get("http://localhost:3000/api/recipes")
       .then((response) => {
-        const recipes = response.data.slice(0, 10);
+        const recipes = response.data.slice(0, 50);
         const updateRecipes = recipes.map((recipe) => {
           return {
-            ...recipe,
-            author: 'Emilie'
+            ...recipe
           };
         });
       this.setState({ recipes: updateRecipes });
@@ -37,7 +37,7 @@ class Main extends Component {
   render() {
     const recipes = this.state.recipes.map((recipe) => {
       return <Recipe 
-        key={recipe.id} 
+        key={recipe._id} 
         title={recipe.name} 
         ingredients={recipe.ingredients} 
         description={recipe.description} 
@@ -47,18 +47,21 @@ class Main extends Component {
     return (
       <Auxilary>
         <section>
-          <AddRecipe />
+          <FindRecipe />
         </section>
 
         <section>
           <ShowRecipe id={this.state.selectedRecipeId} />
         </section>
-        
+
         <section className={classes.AllRecipes}>
-          <h1>Voir toutes les recettes</h1>
+          <h2>Toutes les recettes</h2>
           <div className={classes.SingleRecipe}>{recipes}</div>
         </section>
-        
+
+        <section>
+          <AddRecipe />
+        </section>
       </Auxilary>
     );
   }

@@ -1,7 +1,13 @@
-.AllRecipes {
+body {
+  background-color: #f2f2f2;
+}
+section {
   width: 60%;
   margin: 30px auto;
+  padding: 10px 20px;
   text-align: center;
+  background-color: #ffffff;
+  border-radius: 5px;
 }
 .SingleRecipe {
   display: flex;
