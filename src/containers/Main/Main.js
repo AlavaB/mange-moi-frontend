@@ -50,17 +50,18 @@ class Main extends Component {
           <FindRecipe />
         </section>
 
-        <section>
-          <ShowRecipe id={this.state.selectedRecipeId} />
-        </section>
-
         <section className={classes.AllRecipes}>
-          <h2>Toutes les recettes</h2>
+          <h1 className={classes.ShowAllRecipesTitle}>
+            ... ou retrouvez toutes nos meilleures idées de <span className={classes.RecipeTextColor}>recettes !</span>
+          </h1>
           <div className={classes.SingleRecipe}>{recipes}</div>
         </section>
 
         <section>
           <AddRecipe />
+        </section>
+        <section>
+          <ShowRecipe id={this.state.selectedRecipeId} />
         </section>
       </Auxilary>
     );

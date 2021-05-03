@@ -1,9 +1,9 @@
 .Recipe {
-  width: 250px;
-  height: 150px;
+  width: 300px;
+  height: 350px;
   margin: 20px auto;
-  border: 1px solid #eee;
-  box-shadow: 0 2px 3px #ccc;
+  border: 1px solid #f76808;
+  
   border-radius: 5px;
   box-sizing: border-box;
   cursor: pointer;

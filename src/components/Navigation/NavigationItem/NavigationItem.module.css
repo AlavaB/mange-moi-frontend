@@ -1,11 +1,10 @@
 .NavigationItem {
-  margin: 10px 0;
   box-sizing: border-box;
   display: block;
   width: 100%;
 }
 .NavigationItem a {
-    color: #802b00;
+    color: #fbb383;
     text-decoration: none;
     width: 100%;
     box-sizing: border-box;
@@ -14,5 +13,5 @@
 .NavigationItem a:hover,
 .NavigationItem a:active,
 .NavigationItem a.active {
-  color: #e64d00;
+  color: #f76808;
 }
